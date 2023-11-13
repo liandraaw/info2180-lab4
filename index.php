@@ -8,9 +8,12 @@
         <script src="app.js"></script>
     </head>
     <body>
+        <p> Search by Full Name or Alias </p>
+        <input type="textfield" id="supname" name="name" placeholder="eg. Captain American or Steve Rodgers"></n>
         <button type="submit" id= "button" class="btn" > Search </button>
-    
-        <div id="names"></div>
+
+        <h2>Results</h2>
+        <div id="results"></div>
     </body>
 </html>
    
