@@ -70,3 +70,18 @@ $superheroes = [
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+<?php
+
+// const $txt = $_POST[strip_tags('txt')];
+// var_dump($txt);
+
+// if (in_array($txt, $superheroes)){
+//     for($x=0; $x<=10;$x++){
+//         if ($superheroes['alias']==$txt || $superheroes['name']==$txt){
+//             echo $superheroes[$x];
+
+//         }else{
+//             echo "Superhero not found";
+//         }
+// }
+//}

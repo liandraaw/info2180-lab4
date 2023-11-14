@@ -13,7 +13,9 @@
         <button type="submit" id= "button" class="btn" > Search </button>
 
         <h2>Results</h2>
+        <hr>
         <div id="results"></div>
+        
     </body>
 </html>
    
