@@ -65,23 +65,38 @@ $superheroes = [
 
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+
 <?php
 
-// const $txt = $_POST[strip_tags('txt')];
-// var_dump($txt);
+if (isset($_GET['query'])) {
+    $query = $_GET['query'];
+    if (!empty($query)){
+        $matches = array_filter($superheroes, function ($superhero) use ($query) {
+            return stripos($superhero['alias'], $query) !== false;
+        });
 
-// if (in_array($txt, $superheroes)){
-//     for($x=0; $x<=10;$x++){
-//         if ($superheroes['alias']==$txt || $superheroes['name']==$txt){
-//             echo $superheroes[$x];
+        if (!empty($matches)) {
+            $match = reset($matches);
+            echo "<h3> A.K.A {$match['alias']}</h3>";
+            echo "<h4>{$match['name']}</h4>";
+            echo "<p>{$match['biography']}</p>";
+        } else {
+            echo "<h3>SUPERHERO NOT FOUND <h2>";
+        }
+    } else {
+        echo "<ul>";
+        foreach ($superheroes as $superhero) {
+            echo "<li>{$superhero['alias']}</li>";
+        }
+        echo "</ul>";
+    }
+} else {
+    echo "<ul>";
+    foreach ($superheroes as $superhero) {
+        echo "<li>{$superhero['alias']}</li>";
+    }
+    echo "</ul>";
+}
 
-//         }else{
-//             echo "Superhero not found";
-//         }
-// }
-//}
+
+?>
